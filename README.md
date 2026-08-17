@@ -45,6 +45,8 @@ Claude Code users can also install Humanizer as a plugin:
 
 The skill is then invoked as `/humanizer:humanizer`.
 
+The plugin also exposes the canonical root `SKILL.md` through `skills/humanizer/SKILL.md`. That internal link supports Claude Desktop and older plugin loaders without maintaining a second copy of the prompt.
+
 ### Manual
 
 Any agent harness can use the skill directly because the runtime artifact is `SKILL.md`. Install it wherever your harness expects skill directories, or copy `SKILL.md` into an existing skill folder.
@@ -209,6 +211,7 @@ Rewrites follow a no-fabrication rule: they never add facts, names, dates, or ci
 
 ## Version History
 
+- **2.10.2** - Exposed the canonical root `SKILL.md` through the standard `skills/humanizer/` plugin layout so Claude Desktop and pre-2.1.142 loaders discover it without a duplicated prompt copy (fixes #202). No change to the 35 patterns.
 - **2.10.1** - Added `gate` / `gated` / `gating` to §7 when used figuratively as the default metaphor for ordinary prerequisites, while preserving established technical uses such as feature gating and CI quality gates. No change to the 35 patterns.
 - **2.10.0** - Added patterns #34 (shadowboxing) and #35 (editorial scar tissue) for drafting-conversation residue: unattributed meta-level negations answering objections nobody raised, and phantom "tempting alternative" rebuttals recycled from the model's own corrected mistakes. Both come with false-positive guards protecting real disclaimers, scoping statements, engaged objections, and alternatives a reader would actually weigh (fixes #198). Also expanded #24 to catch accumulated fairness clauses from iterative editing, and changed the revision step to rewrite from the point rather than patch flagged phrases, since patches are how scar tissue forms. 35 patterns total.
 - **2.9.2** - Extended pattern #11 to cover repeated sentence openings, with a deliberate-anaphora guard (fixes #206). Broadened §28 so casual rewordings of signposting are still treated as announcements rather than fixes. No change to the 33 patterns.

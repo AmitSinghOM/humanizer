@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parent.parent
 SKILL = (ROOT / "SKILL.md").read_text(encoding="utf-8")
 README = (ROOT / "README.md").read_text(encoding="utf-8")
 PLUGIN = json.loads((ROOT / ".claude-plugin" / "plugin.json").read_text(encoding="utf-8"))
+PLUGIN_SKILL = ROOT / "skills" / "humanizer" / "SKILL.md"
 
 
 def require(match: re.Match[str] | None, message: str) -> re.Match[str]:
@@ -41,6 +42,11 @@ readme_version = require(
 versions = {skill_version, readme_version, str(PLUGIN.get("version", ""))}
 if len(versions) != 1:
     raise SystemExit(f"Version mismatch: {sorted(versions)}")
+
+if not PLUGIN_SKILL.is_symlink():
+    raise SystemExit("skills/humanizer/SKILL.md must link to the canonical root SKILL.md")
+if PLUGIN_SKILL.resolve() != (ROOT / "SKILL.md").resolve():
+    raise SystemExit("skills/humanizer/SKILL.md must resolve to the root SKILL.md")
 
 pattern_numbers = [
     int(number)
