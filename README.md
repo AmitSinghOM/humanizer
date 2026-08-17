@@ -127,7 +127,7 @@ Rewrites follow a no-fabrication rule: they never add facts, names, dates, or ci
 
 | # | Pattern | Before | After |
 |---|---------|--------|-------|
-| 7 | **AI vocabulary** | "Actually... additionally... quietly... testament... landscape... showcasing" | "also... remain common" |
+| 7 | **AI vocabulary** | "Actually... additionally... gated on... quietly... testament... landscape... showcasing" | "also... needs... remain common" |
 | 8 | **Copula avoidance** | "serves as... features... boasts" | "is... has" |
 | 9 | **Negative parallelisms / tailing negations** | "It's not just X, it's Y", "..., no guessing" | State the point directly |
 | 10 | **Rule of three** | "innovation, inspiration, and insights" | Use natural number of items |
@@ -209,6 +209,7 @@ Rewrites follow a no-fabrication rule: they never add facts, names, dates, or ci
 
 ## Version History
 
+- **2.10.1** - Added `gate` / `gated` / `gating` to §7 when used figuratively as the default metaphor for ordinary prerequisites, while preserving established technical uses such as feature gating and CI quality gates. No change to the 35 patterns.
 - **2.10.0** - Added patterns #34 (shadowboxing) and #35 (editorial scar tissue) for drafting-conversation residue: unattributed meta-level negations answering objections nobody raised, and phantom "tempting alternative" rebuttals recycled from the model's own corrected mistakes. Both come with false-positive guards protecting real disclaimers, scoping statements, engaged objections, and alternatives a reader would actually weigh (fixes #198). Also expanded #24 to catch accumulated fairness clauses from iterative editing, and changed the revision step to rewrite from the point rather than patch flagged phrases, since patches are how scar tissue forms. 35 patterns total.
 - **2.9.2** - Extended pattern #11 to cover repeated sentence openings, with a deliberate-anaphora guard (fixes #206). Broadened §28 so casual rewordings of signposting are still treated as announcements rather than fixes. No change to the 33 patterns.
 - **2.9.1** - Improved distribution and portability: removed nonportable frontmatter and tool preapprovals, made global installation the documented default, added package validation, and removed the duplicated long-form example from the runtime prompt. No change to the 33 patterns.
